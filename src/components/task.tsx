@@ -22,9 +22,6 @@ export function Task({ task, deleteTask, changeTask }: TaskProps) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.TASK,
     item: task,
-    end: (test, test2) => {
-      console.log(test, test2.canDrag())
-    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
