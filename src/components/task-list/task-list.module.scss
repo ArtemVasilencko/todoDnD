@@ -1,0 +1,16 @@
+.taskList {
+  padding: 15px 0;
+}
+
+.taskListHeader {
+  color: gray;
+  text-align: center;
+  padding: 10px;
+
+  &Transparent {
+    color: gray;
+    text-align: center;
+    padding: 10px;
+    opacity: 0.5;
+  }
+}

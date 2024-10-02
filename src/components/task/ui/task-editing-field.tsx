@@ -2,6 +2,8 @@ import { IconButton, TextField } from '@mui/material'
 import { ChangeEvent } from 'react'
 import CheckIcon from '@mui/icons-material/Check'
 
+import styles from '../task.module.scss'
+
 type TaskEditingFieldProps = {
   value: string
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void
@@ -14,7 +16,7 @@ export function TaskEditingField({
   handleSave,
 }: TaskEditingFieldProps) {
   return (
-    <div style={{ width: '100%', padding: '10px' }}>
+    <div className={styles.taskEditingFieldContainer}>
       <TextField
         value={value}
         onChange={handleChange}

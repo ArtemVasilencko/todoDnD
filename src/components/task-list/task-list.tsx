@@ -1,8 +1,10 @@
 import { useDrop } from 'react-dnd'
-import { ChangeTaskProps, TaskProgresses, TaskType } from '../types/types'
-import { Task } from './task'
-import { TaskListHeader } from './task-list-header'
-import { ItemTypes } from '../utils/constants'
+import { ChangeTaskProps, TaskProgresses, TaskType } from '../../shared/types'
+import { Task } from '../task/task'
+import { TaskListHeader } from './ui/task-list-header'
+import { ItemTypes } from '../../shared/constants'
+
+import styles from './task-list.module.scss'
 
 type TaskListProps = {
   progress: TaskProgresses
@@ -41,7 +43,7 @@ export default function TaskList({
   )
 
   return (
-    <div ref={drop} style={{ padding: '15px 0' }}>
+    <div className={styles.taskList} ref={drop}>
       <TaskListHeader
         title={titles[progress]}
         count={tasks.length}

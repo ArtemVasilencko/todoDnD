@@ -1,5 +1,7 @@
 import { Typography } from '@mui/material'
 
+import styles from '../task-list.module.scss'
+
 type TaskListHeaderProps = {
   title: string
   count: number
@@ -9,9 +11,10 @@ type TaskListHeaderProps = {
 export function TaskListHeader({ title, count, isOver }: TaskListHeaderProps) {
   return (
     <Typography
-      color="gray"
-      textAlign="center"
-      style={{ padding: 10, fontSize: '12px', opacity: isOver ? 0.5 : 1 }}
+      className={
+        isOver ? styles.taskListHeaderTransparent : styles.taskListHeader
+      }
+      fontSize="small"
     >
       {title} ({count})
     </Typography>

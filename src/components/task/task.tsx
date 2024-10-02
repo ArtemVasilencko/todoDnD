@@ -1,12 +1,12 @@
 import { Box, IconButton, Typography } from '@mui/material'
-import { ChangeTaskProps, TaskProgresses, TaskType } from '../types/types'
+import { ChangeTaskProps, TaskProgresses, TaskType } from '../../shared/types'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import { ChangeEvent, useState } from 'react'
 
-import { TaskEditingField } from './task-editing-field'
+import { TaskEditingField } from './ui/task-editing-field'
 import { useDrag } from 'react-dnd'
-import { ItemTypes } from '../utils/constants'
+import { ItemTypes } from '../../shared/constants'
 
 import MenuIcon from '@mui/icons-material/Menu'
 

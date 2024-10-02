@@ -1,12 +1,4 @@
 import { createRoot } from 'react-dom/client'
-import App from './app'
+import App from './components/todo-app/todo-app'
 
-import './assets/reset.css'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
-
-createRoot(document.getElementById('root')!).render(
-  <DndProvider backend={HTML5Backend}>
-    <App />
-  </DndProvider>
-)
+createRoot(document.getElementById('root')!).render(<App />)
