@@ -8,16 +8,11 @@ export type TaskType = {
 export type ChangeTaskProps = {
   taskId: string
   fieldName: string
-  value?: TaskProgresses | string
+  value?: TaskProgresses | string | boolean
 }
 
 export enum TaskProgresses {
   PLAN = 'plan',
   PROGRESS = 'progress',
   DONE = 'done',
-}
-
-export enum Moves {
-  UP = 'up',
-  DOWN = 'down',
 }

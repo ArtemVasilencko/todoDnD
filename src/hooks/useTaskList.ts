@@ -10,8 +10,8 @@ export function useTaskList() {
   }
 
   function changeTask({ taskId, fieldName, value }: ChangeTaskProps) {
-    setTasks(
-      tasks.map((task) =>
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
         task.id === taskId ? { ...task, [fieldName]: value } : task
       )
     )

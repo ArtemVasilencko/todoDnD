@@ -17,7 +17,6 @@ type TaskProps = {
 }
 
 export function Task({ task, deleteTask, changeTask }: TaskProps) {
-  const [isEditing, setIsEditing] = useState(false)
   const [value, setValue] = useState(task.name)
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.TASK,
@@ -26,6 +25,8 @@ export function Task({ task, deleteTask, changeTask }: TaskProps) {
       isDragging: !!monitor.isDragging(),
     }),
   }))
+
+  const MAX_NAME_LENGTH = 40
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value)
@@ -37,7 +38,11 @@ export function Task({ task, deleteTask, changeTask }: TaskProps) {
   }
 
   function toggleIsEditing() {
-    setIsEditing(!isEditing)
+    changeTask({
+      taskId: task.id,
+      fieldName: 'isEditing',
+      value: !task.isEditing,
+    })
   }
 
   return (
@@ -51,7 +56,7 @@ export function Task({ task, deleteTask, changeTask }: TaskProps) {
         fontWeight: 'bold',
       }}
     >
-      {isEditing ? (
+      {task.isEditing ? (
         <TaskEditingField
           value={value}
           handleChange={handleChange}
@@ -61,7 +66,11 @@ export function Task({ task, deleteTask, changeTask }: TaskProps) {
         <>
           <Box display="flex" alignItems="center" ref={drag}>
             <MenuIcon style={{ cursor: 'move' }} />
-            <Typography>{task.name}</Typography>
+            <Typography>
+              {task.name.length >= MAX_NAME_LENGTH
+                ? task.name.slice(0, MAX_NAME_LENGTH) + '...'
+                : task.name}
+            </Typography>
           </Box>
           <Box>
             {task.progress !== TaskProgresses.DONE && (
